@@ -1,0 +1,20 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-app-deployment
+spec:
+  replicas: 1 # Set to 1 for now, increase if needed
+  selector:
+    matchLabels:
+      app: calculator-app
+  template:
+    metadata:
+      labels:
+        app: calculator-app
+    spec:
+      containers:
+        - name: calculator-app-container
+          image: swapnilkhatik777437/calculator-app:01
+          ports:
+            - containerPort: 3000 # Optional, but good for documentation

@@ -1,0 +1,13 @@
+# Service
+kind: Service
+apiVersion: v1
+metadata:
+  name: calculator-app-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    app: calculator-app
+  type: LoadBalancer
